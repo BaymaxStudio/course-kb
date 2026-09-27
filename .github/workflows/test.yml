@@ -1,0 +1,59 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-15-intel, windows-latest]
+        python: ['3.10', '3.14']
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Preserve repository line endings
+        run: git config --global core.autocrlf false
+      - name: Check out source
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+          architecture: x64
+      - name: Run unit and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Build public distribution
+        run: python scripts/build_public.py --out "${{ runner.temp }}/course-kb-public"
+      - name: Verify extracted distribution outside the source tree
+        shell: python
+        run: |
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          temporary = Path(os.environ['RUNNER_TEMP'])
+          archives = list((temporary / 'course-kb-public').glob('*.skill'))
+          if len(archives) != 1:
+              raise SystemExit(f'Expected one public skill archive, found {len(archives)}')
+          subprocess.run([
+              sys.executable, 'scripts/check_public.py', str(archives[0]),
+              '--report', str(temporary / 'course-kb-public-check.json'),
+          ], check=True)

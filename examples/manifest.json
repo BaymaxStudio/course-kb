@@ -1,0 +1,17 @@
+{
+  "kb_version": "1.1",
+  "owner": null,
+  "semester": null,
+  "institution": null,
+  "program": null,
+  "courses": [],
+  "last_updated": "2025-09-01T10:00:00+08:00",
+  "calendar": {
+    "source": null,
+    "term": null,
+    "teaching_weeks": null,
+    "week_ranges": {},
+    "notes": "Example only; replace from the supplied calendar."
+  },
+  "_pending_input": ["semester", "institution", "program", "calendar"]
+}

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+/dist/
+/outputs/
+*.skill
+*.zip
+*.sha256
+# Personal deployment records and the workstation-only linking helper stay local.
+/docs/implementation-contract.md
+/docs/rollout-*.md
+/docs/public-release-*.md
+/scripts/install.py

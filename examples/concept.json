@@ -1,0 +1,13 @@
+{
+  "name": "Example concept",
+  "slug": "example-concept",
+  "aliases": [],
+  "definition": "A fictional definition for illustrating the schema.",
+  "definition_basis": "synthesized",
+  "originator": null,
+  "appearances": [{"week": 0, "source_file": "w00-reading-example.md", "context": "Fictional context for this example.", "locator": null, "verification_status": "unverified", "assertion_basis": "extracted"}],
+  "related": [],
+  "cross_course": [],
+  "tags": [],
+  "quotes": []
+}

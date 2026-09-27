@@ -1,0 +1,14 @@
+{
+  "course": "PS101",
+  "week": 0,
+  "status": "pre-class",
+  "date_range": null,
+  "topic": "Example topic",
+  "sources": [{"type": "reading", "filename": "w00-reading-example.md", "title": "Fictional example", "key_concepts": []}],
+  "key_concepts": [],
+  "weekly_summary": "Fictional example; replace with a source-grounded summary.",
+  "open_questions": ["The week dates await the academic calendar."],
+  "indexing_status": "complete",
+  "material_availability": {"status": "unknown", "missing": []},
+  "unresolved_concepts": []
+}
