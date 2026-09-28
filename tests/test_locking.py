@@ -75,7 +75,7 @@ os._exit(0)
 original = builtins.__import__
 def checked(name, *args, **kwargs):
     if name in {"fcntl", "msvcrt"}:
-        raise ImportError("simulated unavailable platform module: " + name)
+        raise ModuleNotFoundError("simulated unavailable platform module: " + name, name=name)
     return original(name, *args, **kwargs)
 builtins.__import__ = checked
 import course_kb.model
