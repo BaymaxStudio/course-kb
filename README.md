@@ -14,7 +14,7 @@
 - 手动安装：解压同名 `.zip`，把完整的 `course-kb` 文件夹放进 Agent 的技能目录。例如 WorkBuddy 通常使用用户主目录下的 `.workbuddy/skills/`。文件夹内应直接看到 `SKILL.md`、`course_kb/` 和 `scripts/`，不要只复制 SKILL.md 或多套一层同名目录。
 - 升级技能：先保留旧技能目录，再放入新目录，重新加载技能或开启新会话。**安装技能与迁移数据库是两个步骤**；安装不会自动修改已有课程资料。
 
-已在 macOS 运行自动化测试，Linux 使用同一套 POSIX 锁实现。Windows 的文件锁、路径及写入实现已适配，并做了协议模拟测试；本版尚未在 Windows 真机验证。Windows 使用可用的 `py -3` 或 `python`，macOS/Linux 通常使用 `python3`。路径含空格或中文时加引号。知识库请放本机普通目录，网络盘与云同步目录的并发行为尚未验证。
+GitHub CI 覆盖 macOS、Linux、Windows 的 Python 3.10 和 3.14，每组都运行自动化测试、构建和解压包验收。Windows 的文件锁与写入流程已在原生 Windows 托管运行环境通过检查；最新结果见顶部 Tests 链接。Windows 使用可用的 `py -3` 或 `python`，macOS/Linux 通常使用 `python3`。路径含空格或中文时加引号。知识库请放本机普通目录，网络盘与云同步目录的并发行为尚未验证。
 
 ## 装好后怎么开始
 

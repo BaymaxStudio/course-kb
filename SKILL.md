@@ -19,8 +19,8 @@ The KB defaults to `~/course-kb`, but the user may select any local directory. R
 KB. On Windows select an available Python 3.10+ command (`py -3` or `python`); on
 macOS/Linux normally use `python3`. Quote every path. Below, `<python>` means that
 command. Use local storage; cloud-synced folders and network shares are not validated
-for concurrent transactions. Windows support uses native file locking but has not yet
-been verified on a Windows machine in this release.
+for concurrent transactions. Windows uses native file locking; GitHub CI runs unit tests
+and extracted-package workflows on Windows, Linux and macOS with Python 3.10 and 3.14.
 
 ## First use and existing libraries
 
